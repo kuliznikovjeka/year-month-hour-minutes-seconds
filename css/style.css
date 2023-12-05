@@ -1,0 +1,28 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
+body {
+	font-family: "Montserrat", sans-serif;
+	font-size: 18px;
+	background-color: #293341;
+	color: #fff;
+}
+* {
+	margin: 0;
+	padding: 0;
+}
+
+.date {
+	padding: 50px 30px;
+}
+.date__container {
+	max-width: 1200px;
+	margin: 0 auto;
+	text-align: center;
+}
+.date__title {
+	text-align: center;
+	font-size: 24px;
+	margin-bottom: 30px;
+}
+.date__text {
+	margin-bottom: 10px;
+}
