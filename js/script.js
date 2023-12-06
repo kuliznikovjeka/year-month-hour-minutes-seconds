@@ -3,11 +3,26 @@ import { UI_ELEMENTS } from './ui-elements.js';
 function updateDateTime() {
 
 	const currentYear = new Date().getFullYear();
-	const currentMonth = new Date().getMonth();
+	const currentMonth = new Date().getMonth() + 1;
 
 	const currentNumber = new Date().getMonth();
 	const monthName = UI_ELEMENTS.MONTH_LIST[currentNumber];
-	const caseOfMonth = monthName.slice(0, monthName.length - 1) + 'я';
+	const MARCH = 'Март';
+	const AUGUST = 'Август';
+
+	function getCorrectEnding(arr) {
+		let result = '';
+		for (const elem of arr) {
+			if (elem !== MARCH && elem !== AUGUST) {
+				result = elem.slice(0, elem.length - 1) + 'я';
+			} else {
+				result = elem + 'а';
+			}
+		}
+		return result;
+	}
+	const month = getCorrectEnding(UI_ELEMENTS.MONTH_LIST)
+
 
 	const weekNumber = new Date().getDay();
 	const weekName = UI_ELEMENTS.WEEK_LIST[weekNumber];
@@ -22,7 +37,7 @@ function updateDateTime() {
 
 	UI_ELEMENTS.MONTH.textContent = `${currentMonth}й месяц, а именно ${monthName}`;
 
-	UI_ELEMENTS.MONTH_DAY.textContent = `Значит сегодня ${currentDayOfMonth} день ${caseOfMonth}`;
+	UI_ELEMENTS.MONTH_DAY.textContent = `Значит сегодня ${currentDayOfMonth}й день ${month}`;
 
 	UI_ELEMENTS.WEEK_DAY.textContent = `${weekNumber}й день недели, а именно ${weekName}`;
 
